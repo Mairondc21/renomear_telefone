@@ -19,11 +19,12 @@ def renomear_arquivos(diretorio_arquivos, arquivo_csv):
             codigo_novo = df.loc[df['TEL_FEITO'].astype(str) == numero_arquivo, 'CODIGO'].values[0]
             
             
-            novo_nome = f"{codigo_novo}{os.path.splitext(nome_arquivo)[1]}"
+            novo_nome = f"{numero_arquivo}_{codigo_novo}{os.path.splitext(nome_arquivo)[1]}"
             
             
             caminho_antigo = os.path.join(diretorio_arquivos, nome_arquivo)
             caminho_novo = os.path.join(diretorio_arquivos, novo_nome)
+
             
             # Renomeia o arquivo
             os.rename(caminho_antigo, caminho_novo)
